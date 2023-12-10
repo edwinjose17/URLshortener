@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+      position: relative; /* Added to set position context for absolute positioning */
+    }
+
+    h1 {
+      color: #007bff;
+    }
+
+    form.logout-form {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 80%; /* Adjusted width to 80% of the container */
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button.logout {
+      background-color: #ff0000; /* Red color for logout button */
+      color: #fff;
+    }
+
+    button.submit {
+      background-color: #4caf50; /* Green color for submit button */
+      color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    div {
+      margin-top: 20px;
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    p {
+      word-break: break-all;
+    }
+
+    form:last-of-type {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/logout" method="GET" class="logout-form">
+    <button type="submit" class="logout">Logout</button>
+  </form>
+
+  <h1>Welcome!</h1>
+
+  <form action="/urls/shorten" method="POST">
+    <label for="longUrl">Enter Long URL:</label>
+    <input type="text" id="longUrl" name="longUrl" required>
+    <button type="submit" class="submit">Shorten URL</button>
+  </form>
+
+  <div>
+    <h2>Shortened URL:</h2>
+    <p>{{shortUrl}}</p>
+  </div>
+
+</body>
+</html>

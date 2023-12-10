@@ -1,0 +1,80 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #092635;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            max-width: 400px;
+            background-color: #9EC8B9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 1rem;
+        }
+
+        input[type="submit"] {
+            background-color: #5C8374;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1e90ff;
+            display: block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        .signuplink{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 3rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="login-box">
+      <h2>Log In</h2>
+      <form action="/login" method="post">
+        <input type="text" name="name" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" />
+      </form>
+      <div class="signuplink"><div>Not an existing user ?</div><div><a
+            href="signup"
+          >Sign Up</a></div></div>
+    </div>
+  </body>
+</html>
