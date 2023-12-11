@@ -5,6 +5,7 @@ const hbs = require("hbs");
 const collection = require("./mongodb");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const shortId = require("shortid");
 
 // Define the path to the templates directory
 const templatePath = path.join(__dirname, '../templates');
@@ -20,15 +21,15 @@ const jwtSecret = "your_secret_key";
 
 // Middleware to check if the user is authenticated
 const authenticateUser = (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req?.cookies?.token;
 
-  if (!token) {
-    return res.status(401).send("Unauthorized");
-  }
+  // if (!token) {
+  //   return res.status(401).send("Unauthorized");
+  // }
 
   try {
-    const decoded = jwt.verify(token, jwtSecret);
-    req.user = decoded;
+    // const decoded = jwt.verify(token, jwtSecret);
+    // req.user = decoded;
     next();
   } catch (error) {
     return res.status(401).send("Unauthorized");
@@ -95,7 +96,7 @@ app.post("/urls/shorten", authenticateUser, async (req, res) => {
     const longUrl = req.body.longUrl;
 
     // Generate a short ID using shortid
-    const shortId = shortid.generate();
+    const shortId = shortId.generate();
 
     // Update the user's "urls" field with the new short URL information
     await collection.updateOne(
